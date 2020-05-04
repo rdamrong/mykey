@@ -1,8 +1,7 @@
 #!/bin/sh
 
 
-export HOST=apple.example.com
-export HOSTIP=10.211.55.2
+export HOST=default
 export CA_KEY=ca.key
 export CA_CERT=ca.crt
 
