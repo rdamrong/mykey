@@ -1,10 +1,9 @@
 #!/bin/sh
 
-cd /root/.docker
 
-export HOST=client1.example.com
-export HOSTIP=10.211.55.19
-export SHOST=client1
+HOST=`hostname`
+HOSTIP=`ip a |grep 'inet ' |grep -v '127.0.0.1' |awk '{print $2}'|cut -d '/' -f 1`
+SHOST=`hostname -s`
 export CA_KEY=ca.key
 export CA_CERT=ca.crt
 
@@ -26,4 +25,3 @@ openssl x509 -passin pass:xpass -req -days 365 -sha256 -in ${SHOST}.csr -CA ${CA
 echo
 echo
 rm -f *.cnf *.csr
-
